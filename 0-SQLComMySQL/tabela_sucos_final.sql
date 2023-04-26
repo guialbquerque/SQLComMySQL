@@ -101,3 +101,6 @@ selecionando todos os produtos menos o especificado
 */
 
 select * from tbcliente where year(DATA_NASCIMENTO) <= 1995;
+
+select NOME, ENDERECO1, IDADE, ESTADO from tbcliente
+where ESTADO = 'SP' and SEXO = 'M';
