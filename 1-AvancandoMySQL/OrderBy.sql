@@ -28,3 +28,7 @@ select NOME_DO_PRODUTO, TAMANHO, SABOR, EMBALAGEM, PRECO_DE_LISTA from tabela_de
 order by EMBALAGEM, PRECO_DE_LISTA desc;
 
 select * from itens_notas_fiscais where CODIGO_DO_PRODUTO = '1013793' order by PRECO desc;
+
+select * from tabela_de_clientes;
+
+# alter table tabela_de_clientes drop ENDERECO_2; Deleted Empty column
