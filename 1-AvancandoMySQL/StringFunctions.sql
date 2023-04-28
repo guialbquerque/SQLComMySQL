@@ -19,3 +19,4 @@ select instr('Hello, today is a good day, not sunny day but a nice day', 'a');
 select * from tabela_de_clientes;
 
 select NOME, concat(ENDERECO_1,' | ', BAIRRO,' | ', CIDADE,' | ', ESTADO) as 'Endereco Completo' from tabela_de_clientes;
+
