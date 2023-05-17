@@ -71,3 +71,7 @@ alter table Itens_Vendidos add constraint fk_produtos
 foreign key (Codigo) references Produtos (Codigo);
 
 select * from itens_vendidos;
+
+alter table vendas rename notas;
+
+alter table itens_vendidos rename itens_notas;
