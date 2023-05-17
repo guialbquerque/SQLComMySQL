@@ -30,3 +30,14 @@ values ('1471156710','Érica Carvalho', 'Iriquitia',
      120000, 22000, 0);
 
 select * from cliente where year(Data_nascimento) = 2000;
+
+insert into produtos
+select CODIGO_DO_PRODUTO as Codigo, NOME_DO_PRODUTO as Descritor, SABOR as Sabor,
+ TAMANHO as Tamanho, EMBALAGEM as Embalagem, PRECO_DE_LISTA as Preco_lista from sucos_vendas.tabela_de_produtos
+where CODIGO_DO_PRODUTO not in (select Codigo from produtos);
+/*
+Comando para adicionar valores de uma base de dados em outra, as tabelas precisam necessariamente possuir os mesmos campos
+e na mesma ordem. O comando not in seleciona apenas valores que nao estejam na tabela de produtos do schema vendas_sucos.
+*/
+
+select * from produtos;
