@@ -41,3 +41,20 @@ e na mesma ordem. O comando not in seleciona apenas valores que nao estejam na t
 */
 
 select * from produtos;
+
+/*
+Inserindo Clientes do schema sucos_vendas em vendas_sucos realizando o mesmo procedimento feito acima
+*/
+insert into cliente
+select CPF, NOME as Nome,
+ENDERECO_1 as Endereco,
+BAIRRO as bairro, CIDADE as Cidade,
+ESTADO as Estado, CEP,
+DATA_DE_NASCIMENTO as Data_nascimento,
+IDADE as Idade, SEXO as Sexo,
+LIMITE_DE_CREDITO as Limite_credito,
+VOLUME_DE_COMPRA as Volume_compra,
+PRIMEIRA_COMPRA as Primeira_compra from sucos_vendas.tabela_de_clientes
+where CPF not in (select CPF from cliente);
+
+select * from cliente;
