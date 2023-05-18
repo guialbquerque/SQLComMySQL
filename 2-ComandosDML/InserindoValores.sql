@@ -65,3 +65,14 @@ update vendedores set Data_admissao = '2014-08-15' where Matricula = 235;
 update vendedores set Data_admissao = '2013-09-17' where Matricula = 236;
 update vendedores set Data_admissao = '2017-03-18' where Matricula = 237;
 update vendedores set Data_admissao = '2016-08-21' where Matricula = 238;
+
+select * from produtos where Sabor = 'Manga';
+
+update produtos set Preco_lista = Preco_lista * 1.15 where Sabor = 'Manga';
+update produtos set Preco_lista = round(Preco_lista, 2) where Sabor = 'Manga';
+
+select * from cliente where CPF = '19290992743';
+
+update cliente set Endereco = 'R. Jorge Emílio 23', Bairro = 'Santo Amaro',
+                   Cidade = 'São Paulo', Estado = 'SP', CEP = '8833223'
+WHERE CPF = '19290992743';
