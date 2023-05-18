@@ -58,3 +58,10 @@ PRIMEIRA_COMPRA as Primeira_compra from sucos_vendas.tabela_de_clientes
 where CPF not in (select CPF from cliente);
 
 select * from cliente;
+
+select * from vendedores;
+
+update vendedores set Data_admissao = '2014-08-15' where Matricula = 235;
+update vendedores set Data_admissao = '2013-09-17' where Matricula = 236;
+update vendedores set Data_admissao = '2017-03-18' where Matricula = 237;
+update vendedores set Data_admissao = '2016-08-21' where Matricula = 238;
