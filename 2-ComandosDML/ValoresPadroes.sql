@@ -12,6 +12,12 @@ values ('Uma mente Brilhante', 'Maravilhoso, muito emocionante!');
 
 insert into MoviesReview (Nome) values ('Liga da Justiça');
 
+alter table MoviesReview rename MoviesSeriesReview;
 /*
 Eh possivel especificar valores padroes no momento da criacao da tabela.
 */
+
+insert into moviesseriesreview (Nome, Critica)
+values ('Dark', 'Serie da minha vida, amo!');
+
+select * from MoviesSeriesReview;
