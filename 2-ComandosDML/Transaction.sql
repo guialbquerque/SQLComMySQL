@@ -12,3 +12,10 @@ start transaction;
 insert into vendedores (Matricula, Nome, Bairro, Comissao, Data_admissao, Ferias)
 values ('002', 'Juliana', 'Centro', '0.05', '2023-05-18', 0);
 rollback;
+
+/*
+O comando transaction permite que um processo seja revertido ou confirmado efetivamente. Com o commit, confirmasse a
+operacao realizada, com o rollback, desfazm a operacao.
+*/
+
+select * from vendedores;

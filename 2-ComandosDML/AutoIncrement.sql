@@ -19,7 +19,7 @@ insert into Classificados (Nome) values ('Rebeca');
 
 /*
 Ao utilizar o comando auto_increment, um campo de ordenacao sequencial automatica eh criado.
-A ordenacao comeca na posicao 1. Eh possivel apagar uma posicao qualquer, se sobrescrever a posicao
+A ordenacao comeca na posicao 1. Eh possivel apagar uma posicao qualquer, e sobrescrever a posicao
 inserindo um novo dado. Ao apagar a ultima posicao, e depois isso inserindo um novo valor, a
 ordenacao seguira adicionando na proxima posicao, o auto_increment nao remaneja as posicoes,
 simplesmente ordena como se os valores apagados ainda pertencessem a sequencia.
