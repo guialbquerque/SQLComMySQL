@@ -15,7 +15,9 @@ INSERT INTO PRODUTOS (
     ('1001011','Sabor dos Alpes 1 Litro - Açai','Açai','1 Litro','Garrafa',7.50);
 
 select * from produtos where substring(Descritor, 1, 15) = 'Sabor dos Alpes';
-
+/*
+O comando substring recebe o campo, o inicio e fim de caracteres que se deseja buscar.
+*/
 delete from produtos where Codigo = '1001000';
 
 select Codigo from produtos where Codigo not in (select Codigo_do_Produto from sucos_vendas.tabela_de_produtos);
