@@ -54,7 +54,7 @@ select * from itens_notas;
 
 insert into itens_notas (Numero, Codigo, Quantidade, Preco)
 values ('1000', '520380', 100, 26.5), ('10000', '1000889', 200, 35.75);
-
+use sucos_vendas;
 delimiter //
 create trigger faturamentos after insert on itens_notas
     for each row
@@ -66,8 +66,22 @@ create trigger faturamentos after insert on itens_notas
                 on N.Numero = ITN.Numero
                 group by N.Data;
     end //
+select * from notas_fiscais;
+select * from itens_notas_fiscais;
 
-insert into itens_notas (Numero, Codigo, Quantidade, Preco)
+delimiter //
+create trigger faturamentos after insert on itens_notas_fiscais
+	for each row 
+    begin
+		delete from tb_faturamento;
+        insert into tb_faturamento
+			select N.DATA_VENDA as Data, round(sum(ITN.PRECO * ITN.QUANTIDADE), 2) as Faturamento from notas_fiscais N
+				inner join itens_notas_fiscais ITN
+                on N.NUMERO = ITN.NUMERO
+                group by N.DATA_VENDA;
+	end //
+
+insert into itens_notas_fiscais (Numero, Codigo, Quantidade, Preco)
 values ('10001', '520380', 100, 26.5), ('10002', '1000889', 200, 35.75);
 
 insert into itens_notas (Numero, Codigo, Quantidade, Preco)
