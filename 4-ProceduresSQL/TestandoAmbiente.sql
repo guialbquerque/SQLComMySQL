@@ -1,3 +1,4 @@
+
 select * from ITENS_NOTAS_FISCAIS;
 
 select * from NOTAS_FISCAIS;
