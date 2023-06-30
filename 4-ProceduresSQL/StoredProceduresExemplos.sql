@@ -13,5 +13,3 @@ call declarando_variaveis;
 call modificando_valores_padrao;
 
 call sp_Exerc01;
-
-call concatenando_tipos;
