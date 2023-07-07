@@ -35,3 +35,13 @@ ON A.NUMERO = B.NUMERO
 WHERE A.DATA_VENDA in('20170301', '20150101') group by A.DATA_VENDA;
 
 call Comparativo_Vendas('20160301', '20150101');
+
+call tipo_sabor('1086543');
+
+CALL tipo_sabor_error_continue('10000001');
+
+call classificando_produtos_case('1002334');
+
+call Comparativo_Vendas_case('20160301', '20150101');
+
+call usando_while(10, 50);
