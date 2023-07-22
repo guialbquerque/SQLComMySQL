@@ -45,3 +45,5 @@ call classificando_produtos_case('1002334');
 call Comparativo_Vendas_case('20160301', '20150101');
 
 call usando_while(10, 50);
+
+call Soma_Dias_Notas;
