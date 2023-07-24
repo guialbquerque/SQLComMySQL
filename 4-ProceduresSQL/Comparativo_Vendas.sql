@@ -1,4 +1,4 @@
-DELIMITER $$
+	DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Comparativo_Vendas`(sp_data1 date, sp_data2 date)
 BEGIN
 	declare sp_total_venda1 float;
