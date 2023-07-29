@@ -52,8 +52,56 @@ select * from itens_notas_fiscais;
 
 call faturamento_por_mes_ano(1, 2018);
 
-SET GLOBAL LOG_BIN_TRUST_FUNCTION_CREATORS = 1;
-
 select NOME_DO_PRODUTO, SABOR, fc_tipo_sabor(SABOR) as 'Tipo da fruta' from tabela_de_produtos;
 
 select conta_numero_de_notas('2015-01-01') as Total_notas;
+
+select fc_numero_aleatorio(0, 100);
+
+create table TABELA_ALEATORIOS (num int);
+
+select * from TABELA_ALEATORIOS;
+
+insert into tabela_aleatorios 
+select fc_numero_aleatorio(0, 1000) as num;
+
+call Tabela_Numeros_Aleatorios();
+
+SET GLOBAL LOG_BIN_TRUST_FUNCTION_CREATORS = 1; 
+
+select acha_cliente_aleatorio();
+select acha_produto_aleatorio();
+select acha_vendedor_aleatorio();
+
+select count(*) CODIGO_DO_PRODUTO from tabela_de_produtos;
+
+call insere_nova_venda('2023-02-08', 5, 20);
+
+select * from notas_fiscais where DATA_VENDA = '2023-02-08';
+
+select * from itens_notas_fiscais where NUMERO = 87983;
+
+CREATE TABLE TAB_FATURAMENTO (DATA_VENDA DATE NULL, TOTAL_VENDA FLOAT);
+
+
+DELIMITER //
+CREATE TRIGGER TG_CALCULA_FATURAMENTO_INSERT AFTER INSERT ON ITENS_NOTAS_FISCAIS
+FOR EACH ROW BEGIN
+	call calcula_faturamento();
+END//
+
+DELIMITER //
+CREATE TRIGGER TG_CALCULA_FATURAMENTO_UPDATE AFTER UPDATE ON ITENS_NOTAS_FISCAIS
+FOR EACH ROW BEGIN
+	call calcula_faturamento();
+END//
+
+DELIMITER //
+CREATE TRIGGER TG_CALCULA_FATURAMENTO_DELETE AFTER DELETE ON ITENS_NOTAS_FISCAIS
+FOR EACH ROW BEGIN
+	call calcula_faturamento();
+END//
+
+call insere_nova_venda('2023-07-29', 5, 20);
+
+select * from tab_faturamento where DATA_VENDA = '2023-07-29';
